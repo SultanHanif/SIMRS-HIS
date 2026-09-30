@@ -1,0 +1,149 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-clinic-50: #effcf8;
+    --color-clinic-100: #d7f5ea;
+    --color-clinic-200: #b1ead7;
+    --color-clinic-300: #7dd8be;
+    --color-clinic-400: #43bea0;
+    --color-clinic-500: #20a386;
+    --color-clinic-600: #14836e;
+    --color-clinic-700: #12695a;
+    --color-clinic-800: #125448;
+    --color-clinic-900: #10463d;
+}
+
+@layer base {
+    :root {
+        color-scheme: light;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-height: 100vh;
+        background:
+            radial-gradient(circle at 100% 0%, rgb(32 163 134 / 7%), transparent 28rem),
+            #f4f7fb;
+        color: #172033;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font: inherit;
+    }
+
+    :focus-visible {
+        outline: 3px solid rgb(32 163 134 / 45%);
+        outline-offset: 2px;
+    }
+
+    ::selection {
+        background: #b1ead7;
+        color: #10463d;
+    }
+}
+
+@layer components {
+    .app-surface {
+        box-shadow: 0 1px 2px rgb(15 23 42 / 3%), 0 12px 30px rgb(15 23 42 / 4%);
+    }
+
+    .nav-link-active {
+        box-shadow: inset 3px 0 0 #14836e;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media print {
+    @page {
+        size: landscape;
+        margin: 12mm;
+    }
+
+    body {
+        min-height: 0;
+        background: #fff !important;
+        color: #000;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .app-chrome,
+    .print-hidden {
+        display: none !important;
+    }
+
+    .app-content {
+        padding-left: 0 !important;
+    }
+
+    .app-main {
+        max-width: none !important;
+        padding: 0 !important;
+    }
+
+    .operational-report {
+        display: block !important;
+    }
+
+    .operational-report > * + * {
+        margin-top: 12pt;
+    }
+
+    .operational-report .print-summary {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .operational-report .print-summary article,
+    .operational-report .print-table {
+        border-color: #cbd5e1;
+        box-shadow: none;
+    }
+
+    .operational-report .print-summary article {
+        break-inside: avoid;
+    }
+
+    .operational-report .print-table {
+        overflow: visible;
+    }
+
+    .operational-report .print-table tr {
+        break-inside: avoid;
+    }
+
+    .operational-report table {
+        width: 100%;
+        font-size: 9pt;
+    }
+
+    .operational-report th,
+    .operational-report td {
+        padding: 6pt 8pt;
+    }
+}
